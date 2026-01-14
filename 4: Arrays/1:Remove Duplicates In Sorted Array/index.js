@@ -1,18 +1,18 @@
 let arr = [0, 0, 1, 1, 2, 2, 3, 3, 4, 4];
 
-function removeDuplicatesSortedArr(arr) {
-  let x = 0;
+function removeDuplicatesArr(arr) {
+  let left = 0;
 
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] > arr[x]) {
-      x++;
-      arr[x] = arr[i];
+  for (let right = 0; right < arr.length; right++) {
+    if (arr[left] !== arr[right]) {
+      left++;
+      arr[left] = arr[right];
     }
   }
-
-  return x + 1;
+  return left;
 }
 
-const length = removeDuplicatesSortedArr(arr);
-console.log(length);
-console.log(arr.slice(0, length));
+const result = removeDuplicatesArr(arr);
+console.log(result);
+const newArr = arr.slice(arr,result)
+console.log(newArr)
